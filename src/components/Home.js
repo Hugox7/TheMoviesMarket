@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Card, Button } from 'antd';
 
 import './home.css';
+import MovieCard from './MovieCard';
 
 const { Meta } = Card;
 
@@ -45,39 +46,8 @@ const Home = () => {
             <h2>En ce moment au cinéma :</h2>
             <div id="now-playing">
                 {nowPlaying.map(movie => {
-
-                    const rating = movie.vote_average * 10;
-
-                    let rateColor;
-                    if (rating >= 0 && rating < 50) {
-                        rateColor = "red";
-                    } else if (rating < 60 && rating >= 50) {
-                        rateColor = "orange"
-                    } else if (rating >= 60 && rating < 80 ) {
-                        rateColor = "lightGreen"
-                    } else if (rating <= 100 && rating >= 80) {
-                        rateColor = "darkGreen"
-                    } else {
-                        rateColor = "white"
-                    }
-
                     return (
-                        <Card
-                            key={movie.id}
-                            className="movie-card"
-                            style={{ width: 190 }}
-                            cover={
-                            <img
-                                alt="movie-poster"
-                                src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
-                            />
-                            }
-                        >
-                            <Meta
-                            title={movie.title}
-                            />
-                            <div className={`rating ${rateColor}`}>{rating} <span>%</span></div>
-                        </Card>
+                        <MovieCard movie={movie} />
                     );
                 })}
             </div>
