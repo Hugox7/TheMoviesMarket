@@ -1,0 +1,61 @@
+#home {
+    height: 100%;
+    padding: 20px;
+    background-color: #FBFBFC;
+}
+
+#home h2 {
+    margin-left: 18px;
+}
+
+#now-playing {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie-card {
+    margin: 20px;
+    position: relative;
+}
+
+.movie-card span {
+    font-size: 10px;
+}
+
+.rating {
+    position: absolute;
+    bottom: 52px;
+    left: 5px;
+    background-color: #545456;
+    color: white;
+    padding: 4px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* classNames for rate color */
+.red {
+    border: 3px solid red;
+}
+
+.orange {
+    border: 3px solid orange;
+}
+
+.lightGreen {
+    border: 3px solid lightgreen;
+}
+
+.darkGreen {
+    border: 3px solid green;
+}
+
+.white {
+    border: 3px solid white;
+
+}
