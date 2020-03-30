@@ -1,0 +1,16 @@
+#header {
+    display: flex;
+    height: 80px;
+    background-color: darkgrey;
+    padding: 10px;
+}
+
+#logo-wrapper {
+    width: 80px;
+    height: 80px;
+}
+
+#logo-wrapper img {
+    width: 100%;
+    height: 100%;
+}
