@@ -1,5 +1,9 @@
 import React from 'react';
-import { Card, Button } from 'antd';
+import { Card } from 'antd';
+import { Link } from 'react-router-dom';
+
+import './movieCard.css';
+import placeholder from '../img/placeholder.png';
 
 const { Meta } = Card;
 
@@ -20,23 +24,30 @@ const MovieCard = ({ movie }) => {
         rateColor = "white"
     }
 
+    const poster = movie.poster_path 
+        ? `http://image.tmdb.org/t/p/w185/${movie.poster_path}`
+        : placeholder;
+
     return (
+        <Link to={`/movie/${movie.id}`}>
         <Card
             key={movie.id}
             className="movie-card"
             style={{ width: 200 }}
             cover={
-            <img
-                alt="movie-poster"
-                src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`}
-            />
+                <img
+                    alt="movie-poster"
+                    src={poster}
+                    className="card-poster"
+                /> 
             }
         >
             <Meta
-            title={movie.title}
+                title={movie.title}
             />
             <div className={`rating ${rateColor}`}>{rating} <span>%</span></div>
         </Card>
+        </Link>
     );
 }
 

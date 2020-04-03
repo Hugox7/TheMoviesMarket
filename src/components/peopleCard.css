@@ -1,0 +1,33 @@
+#people-card {
+    height: 275px;
+    margin: 10px;
+    min-width: 150px;
+    max-width: 150px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px grey;
+    position: relative;
+}
+
+#people-card img {
+    max-width: 100%;
+}
+
+#people-info {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 170px;
+    bottom: 0;
+    background-color: white;
+    padding: 5px;
+}
+
+#people-info p {
+    color: grey;
+}
+
+#people-info h3 {
+    font-weight: bold;
+    margin: 0;
+}

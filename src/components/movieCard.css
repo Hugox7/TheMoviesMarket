@@ -1,6 +1,11 @@
 .movie-card {
     margin: 20px;
     position: relative;
+    box-shadow: 5px 5px 7px darkgrey;
+    min-height: 367.53px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .movie-card span {
@@ -9,8 +14,8 @@
 
 .rating {
     position: absolute;
-    bottom: 52px;
-    left: 5px;
+    top: -15px;
+    right: -15px;
     background-color: #545456;
     color: white;
     padding: 4px;
@@ -21,6 +26,34 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
+}
+
+.card-poster:hover {
+    opacity: 0.6;
+    /*filter: alpha(opacity=100);*/
+}
+
+.ant-modal-header {
+    display: none;
+}
+
+.movieInfo {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#movieInfo2 {
+    width: 100%;
+    margin: 20px;
+}
+
+#movieInfo2 h2 {
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 26px;
+    color: #474747;
 }
 
 /* classNames for rate color */
@@ -44,3 +77,5 @@
     border: 3px solid white;
 
 }
+
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");

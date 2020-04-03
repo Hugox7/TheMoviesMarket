@@ -1,0 +1,97 @@
+#movie-detail-wrapper {
+    height: 100%;
+}
+
+#info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 550px;
+    padding-top: 10px;
+}
+
+#info img {
+    margin: 30px;
+    box-shadow: 5px 5px 10px grey;
+}
+
+#titleAndOverview {
+    margin: 40px;
+    max-width: 700px;
+    position: relative;
+}
+
+#info h1 {
+    font-family: 'Roboto';
+    font-weight: bold;
+    margin: 0;
+}
+
+#info p {
+    text-align: justify;
+}
+
+#additional-info {
+    height: 300px;
+    background-color: #F3F3F3;
+    margin-top: 20px;
+}
+
+#moreInfo {
+    display: flex;
+    margin: 35px 0 0 0;
+}
+
+#moreInfo p {
+    margin-right: 35px;
+}
+
+#detail-rating {
+    position: absolute;
+    top: -2px;
+    right: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: #545456;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.movie-cast {
+    display: flex;
+    margin: 0px 50px;
+    overflow: scroll;
+    padding: 10px 0px;
+}
+
+#additional-info {
+    padding-top: 20px;
+    height: 100%;
+}
+
+#additional-info h2 {
+    margin-left: 60px;
+    font-weight: bold;
+}
+
+.bad {
+    border: solid 4px red;
+}
+
+.average {
+    border: solid 4px orange;
+}
+
+.good {
+    border: solid 4px lightgreen;
+}
+
+.excellent {
+    border: solid 4px green;
+}
