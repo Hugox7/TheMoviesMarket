@@ -18,7 +18,6 @@
 #titleAndOverview {
     margin: 40px;
     max-width: 700px;
-    position: relative;
 }
 
 #info h1 {
@@ -43,13 +42,24 @@
 }
 
 #moreInfo p {
-    margin-right: 35px;
+    margin-right: 40px;
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+#moreInfo div {
+    width: 170px;
+    overflow-wrap: anywhere;
+    margin-right: 10px;
+}
+
+.moreInfo-element {
+    font-weight: bold;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.65);
 }
 
 #detail-rating {
-    position: absolute;
-    top: -2px;
-    right: 0px;
     font-size: 20px;
     font-weight: bold;
     padding: 4px;

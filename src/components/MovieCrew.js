@@ -32,6 +32,7 @@ const MovieCrew = (props) => {
         fetchData();
     }, []);
 
+    // data filtered by department
     const producers = crew && crew.length
         ? crew.filter(elem => elem.department === "Production") 
         : [];
@@ -78,43 +79,43 @@ const MovieCrew = (props) => {
                 
             </div>
             <div id="lists">
-                <h2>Réalisation</h2>
+                <h2>{directors.length ? 'Réalisation' : null}</h2>
                 <div className="crew-list">
                     {directors.map((elem, index) => {
                         return <PeopleCard cast={elem} key={index} />
                     })}
                 </div>
-                <h2>Production</h2>
+                <h2>{producers.length ? 'Production' : null}</h2>
                 <div className="crew-list">
                     {producers.map((elem, index) => {
                         return <PeopleCard cast={elem} key={index} />
                     })}
                 </div>
-                <h2>Ecriture</h2>
+                <h2>{writing.length ? 'Ecriture' : null}</h2>
                 <div className="crew-list">
                     {writing.map((elem, index) => {
                         return <PeopleCard cast={elem} key={index} />
                     })}
                 </div>
-                <h2>Artistique</h2>
+                <h2>{artists.length ? 'Artistique' : null}</h2>
                 <div className="crew-list">
                     {artists.map((elem, index) => {
                         return <PeopleCard cast={elem} key={index} />
                     })}
                 </div>
-                <h2>Montage</h2>
+                <h2>{editors.length ? 'Montage' : null}</h2>
                 <div className="crew-list">
                     {editors.map((elem, index) => {
                         return <PeopleCard cast={elem} key={index} />
                     })}
                 </div>
-                <h2>Son</h2>
+                <h2>{sound.length ? 'Son' : null}</h2>
                 <div className="crew-list">
                     {sound.map((elem, index) => {
                         return <PeopleCard cast={elem} key={index} />
                     })}
                 </div>
-                <h2>Costumes et maquillage</h2>
+                <h2>{costumes.length ? 'Costumes et maquillage' : null}</h2>
                 <div className="crew-list">
                     {costumes.map((elem, index) => {
                         return <PeopleCard cast={elem} key={index} />

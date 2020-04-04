@@ -10,8 +10,9 @@
 
 .crew-list {
     display: flex;
-    padding: 0px 30px;
+    margin: 0px 30px;
     margin-bottom: 30px;
+    overflow: scroll;
 }
 
 #which-movie {

@@ -14,7 +14,7 @@ const Header = () => {
             <div id="logo-wrapper">
                 <img src={logo} alt="logo"/>
             </div>
-            <h1>The Movies Fair</h1>
+            <h1>The Movies Market</h1>
         </div>
             <Link to="/search-movie"><Button style={{ marginRight: '20px' }} type="primary">Rechercher un film</Button></Link>
             {/* <AutoComplete 

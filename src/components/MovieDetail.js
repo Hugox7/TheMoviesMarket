@@ -39,11 +39,12 @@ const MovieDetail = (props) => {
     }, []);
 
     const director = credits.crew && credits.crew.length 
-        ? credits.crew.filter(elem => elem.job === "Director")[0].name 
+        ? credits.crew.filter(elem => elem.job === "Director")[0]
         : null;
     const movieGenres = movie.genres ? <p>{movie.genres.map(genre => {
         return `${genre.name} `
     })}</p> : null;
+    const budget = new Intl.NumberFormat('fr-FR').format(movie.budget);
 
     if (Object.entries(movie).length == 0) {
         return  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
@@ -74,15 +75,28 @@ const MovieDetail = (props) => {
                         <p style={{ margin: '0 15px' }}>-</p>
                         <p>{`${movie.runtime} min`}</p>
                     </div>
-                    <p style={{ fontStyle: 'italic', fontSize: '18px' }}>{movie.tagline}</p>
-                    <p>{movie.overview}</p>
-                    <div id="moreInfo">
-                        <p>Date de sortie<br />{moment(movie.release_date).format('LL')}</p>
-                        <p>Réalisateur</p>
-                        {director}
-                    </div>
                     <div id="detail-rating" className={ratingClass}>
                         {rating} <span style={{ fontSize: '15px' }}>%</span>
+                    </div>
+                    <p style={{ fontStyle: 'italic', fontSize: '18px', marginTop: '20px' }}>
+                        {movie.tagline}
+                    </p>
+                    <p>{movie.overview}</p>
+                    <div id="moreInfo">
+                        <div>
+                            <p>Date de sortie</p>
+                            <p className="moreInfo-element">{moment(movie.release_date).format('LL')}</p>
+                        </div>
+                        <div>
+                            <p>Réalisateur</p>
+                            <Link className="moreInfo-element" to={`/people/${director.id}`}>
+                                <p>{director.name}</p>
+                            </Link>
+                        </div>
+                        <div>
+                            <p>Budget</p>
+                            <p className="moreInfo-element">{`${budget} $`}</p>
+                        </div>
                     </div>
                 </div>
             </div>
