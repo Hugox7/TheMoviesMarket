@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Button } from 'antd';
+import { Button, Spin } from 'antd';
 import { PlusCircleOutlined } from '@ant-design/icons';
 
 import './home.css';
@@ -28,9 +28,9 @@ const Home = () => {
        axios.all([fetchNowPlaying, fetchPopular, fetchTopRated, fetchUpcoming])
         .then(axios.spread((...res) => {
             setNowPlaying(res[0].data.results.slice(0, 6));
-            setPopular(res[1].data.results.slice(0, 7));
-            setTopRated(res[2].data.results.slice(0, 7));
-            setUpcoming(res[3].data.results.slice(0, 7));
+            setPopular(res[1].data.results.slice(0, 6));
+            setTopRated(res[2].data.results.slice(0, 6));
+            setUpcoming(res[3].data.results.slice(0, 6));
         }))
         .catch(err => console.log(err));
     }
@@ -40,7 +40,11 @@ const Home = () => {
     }, []);
 
     if (!nowPlaying.length || !popular.length || !topRated.length || !upcoming.length) {
-        return <div>Loading...</div>
+        return (
+            <div id="home-loading">
+                <Spin spinning size="large" />
+            </div>
+        ) ;
     }
 
     return (
@@ -53,6 +57,45 @@ const Home = () => {
                     );
                 })}
                 <Link to="/now-playing">
+                    <Button type="dashed" style={{ width: 200, height: 367, margin: 20, position: 'relative' }}>
+                        <PlusCircleOutlined style={{ fontSize: 80, position: 'absolute', top: 140, left: 58 }} />
+                    </Button>
+                </Link>
+            </div>
+            <h2>Films populaires :</h2>
+            <div id="popular">
+                {popular.map(movie => {
+                    return (
+                        <MovieCard key={movie.id} movie={movie} />
+                    );
+                })}
+                <Link to="/popular">
+                    <Button type="dashed" style={{ width: 200, height: 367, margin: 20, position: 'relative' }}>
+                        <PlusCircleOutlined style={{ fontSize: 80, position: 'absolute', top: 140, left: 58 }} />
+                    </Button>
+                </Link>
+            </div>
+            <h2>Films les mieux notés :</h2>
+            <div id="top">
+                {topRated.map(movie => {
+                    return (
+                        <MovieCard key={movie.id} movie={movie} />
+                    );
+                })}
+                <Link to="/top-rated">
+                    <Button type="dashed" style={{ width: 200, height: 367, margin: 20, position: 'relative' }}>
+                        <PlusCircleOutlined style={{ fontSize: 80, position: 'absolute', top: 140, left: 58 }} />
+                    </Button>
+                </Link>
+            </div>
+            <h2>Bientôt en salles :</h2>
+            <div id="upcoming">
+                {upcoming.map(movie => {
+                    return (
+                        <MovieCard key={movie.id} movie={movie} />
+                    );
+                })}
+                <Link to="/upcoming">
                     <Button type="dashed" style={{ width: 200, height: 367, margin: 20, position: 'relative' }}>
                         <PlusCircleOutlined style={{ fontSize: 80, position: 'absolute', top: 140, left: 58 }} />
                     </Button>

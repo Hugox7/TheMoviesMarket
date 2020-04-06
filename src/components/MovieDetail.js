@@ -45,6 +45,14 @@ const MovieDetail = (props) => {
         return `${genre.name} `
     })}</p> : null;
     const budget = new Intl.NumberFormat('fr-FR').format(movie.budget);
+    const revenue = new Intl.NumberFormat('fr-FR').format(movie.revenue);
+
+    const directorPart = director ?
+        <><p>Réalisateur</p>
+        <Link className="moreInfo-element" to={`/people/${director.id}`}>
+            <p>{director.name}</p>
+        </Link></> : <p>Réalisateur</p>;
+
 
     if (Object.entries(movie).length == 0) {
         return  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
@@ -88,14 +96,15 @@ const MovieDetail = (props) => {
                             <p className="moreInfo-element">{moment(movie.release_date).format('LL')}</p>
                         </div>
                         <div>
-                            <p>Réalisateur</p>
-                            <Link className="moreInfo-element" to={`/people/${director.id}`}>
-                                <p>{director.name}</p>
-                            </Link>
+                            {directorPart}
                         </div>
                         <div>
                             <p>Budget</p>
                             <p className="moreInfo-element">{`${budget} $`}</p>
+                        </div>
+                        <div>
+                            <p>Recettes</p>
+                            <p className="moreInfo-element">{`${revenue} $`}</p>
                         </div>
                     </div>
                 </div>
@@ -103,9 +112,9 @@ const MovieDetail = (props) => {
             <div id="additional-info">
                 <h2>Casting</h2>
                 <div className="movie-cast">
-                    {credits.cast.map(elem => {
+                    {credits.cast.map((elem, index) => {
                         return (
-                            <Link to={`/people/${elem.id}`} key={elem.id}>
+                            <Link to={`/people/${elem.id}`} key={index}>
                                 <PeopleCard cast={elem} />
                             </Link>
                         );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './peopleCard.css';
 import placeholder from '../img/placeholder.png';
@@ -10,13 +11,16 @@ const PeopleCard = ({ cast }) => {
         : placeholder;
 
     return (
-        <div id="people-card">
-            <img src={avatar} alt="people profile picture" />
-            <div id="people-info">
-                <h3>{cast.character || cast.job}</h3>
-                <p>{cast.name}</p>
+        <Link to={`/people/${cast.id}`}>
+            <div id="people-card">
+                <img src={avatar} alt="people profile picture" />
+                <div id="people-info">
+                    <h3>{cast.character || cast.job || ''}</h3>
+                    <p>{cast.name}</p>
+                </div>
             </div>
-        </div>
+        </Link>
+        
     );
 }
 

@@ -25,13 +25,14 @@
     height: 100%;
 }
 
-/* .ant-btn-primary {
-    background-color: grey;
-    border: 0;
-}
+.ant-btn-primary {
+    background-color: #DD1C1A;
+    color: white;
+    border: white 2px solid;
+} 
 
 .ant-btn-primary:hover {
     background-color: white;
-} */
+} 
 
 @import url("https://fonts.googleapis.com/css?family=Limelight&display=swap");

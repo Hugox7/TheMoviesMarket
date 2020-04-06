@@ -1,5 +1,4 @@
 #home {
-    height: 100%;
     padding: 20px;
     background-color: #FBFBFC;
 }
@@ -13,9 +12,31 @@
     flex-wrap: wrap;
 }
 
+#top {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 h2 {
     font-family: "Aleo";
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+#popular {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#upcoming {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#home-loading {
+    min-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Aleo&display=swap");
